@@ -1,0 +1,15 @@
+name: hello-world
+on:
+  workflow_dispatch:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build-steps
+        run: echo "Hello-World!"
+      
+       
