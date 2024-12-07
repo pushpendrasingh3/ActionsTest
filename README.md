@@ -1,3 +1,3 @@
 # ActionsDemo
 Github Actions demo
-on Release branch
+development code at feature branch
