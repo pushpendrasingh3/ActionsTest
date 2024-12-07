@@ -4,9 +4,9 @@ on:
   push:
     branches: [ release, feature ]
   pull_request:
-    branches: [ release ]
+    branches: [ release, main ]
   workflow_dispatch:
-    branches: [ feature ]
+    branches: [ feature, release ]
 
 jobs:
   Build:
