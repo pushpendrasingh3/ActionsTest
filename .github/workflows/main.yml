@@ -19,7 +19,7 @@ jobs:
     
   DeployDev:
     name: Deploy to Dev 
-    if: github.event_name == 'push'
+    if: ((github.event_name == 'push') && (github.event.ref == 'refs/heads/feature'))
     # if: github.event.ref == 'refs/heads/feature'
     needs: [Build]
     runs-on: ubuntu-latest
