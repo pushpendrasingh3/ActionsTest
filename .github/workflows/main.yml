@@ -19,7 +19,7 @@ jobs:
     
   DeployDev:
     name: Deploy to Dev 
-    if: github.event_name == 'push'
+    if: ((github.event_name == 'push') && (github.event.ref == 'refs/heads/feature'))
     # if: github.event.ref == 'refs/heads/feature'
     needs: [Build]
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     
   DeployStaging:
     name: Deploy to Staging 
-    if: github.event.ref == 'refs/heads/release'
+    if: ((github.event.ref == 'refs/heads/release') || (github.event_name == 'pull_request'))
     needs: [Build]
     runs-on: ubuntu-latest
     environment: 
@@ -41,7 +41,8 @@ jobs:
     steps:
       - name: Deploy
         run: echo I am deploying! 
-            
+           
+
   DeployProd:
     name: Deploy to Production 
     needs: [DeployStaging]
